@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NúcleoGestão · Visualizar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="cabecalho__marca">
+      <img src="icone.svg" alt="Logotipo NúcleoGestão" width="40" height="40">
+      <div>
+        <p class="cabecalho__titulo">NúcleoGestão</p>
+        <p class="cabecalho__subtitulo">Cadastro e controle de itens</p>
+      </div>
+    </div>
+
+    <nav class="navegacao" aria-label="Navegação principal">
+      <ul class="navegacao__lista">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cadastro.html">Cadastrar</a></li>
+        <li><a href="visualizacao.html" class="ativo">Visualizar</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <section class="secao">
+      <h1>Painel de itens cadastrados</h1>
+      <div class="cartoes-resumo" role="group" aria-label="Indicadores gerais">
+        <article class="cartao-resumo">
+          <p class="cartao-resumo__rotulo">Itens cadastrados</p>
+          <p class="cartao-resumo__valor" id="total-itens">0</p>
+        </article>
+        <article class="cartao-resumo">
+          <p class="cartao-resumo__rotulo">Quantidade total</p>
+          <p class="cartao-resumo__valor" id="total-quantidade">0</p>
+        </article>
+        <article class="cartao-resumo">
+          <p class="cartao-resumo__rotulo">Valor total estimado</p>
+          <p class="cartao-resumo__valor" id="total-valor">R$ 0,00</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="secao__cabecalho-flex">
+        <h2>Itens cadastrados</h2>
+        <div class="campo campo--busca">
+          <label for="busca">Buscar por nome ou código</label>
+          <input type="search" id="busca" name="busca" placeholder="Digite para filtrar...">
+        </div>
+      </div>
+
+      <div class="tabela-wrapper" tabindex="0" role="region" aria-label="Tabela de itens cadastrados">
+        <table class="tabela">
+          <caption class="visually-hidden">Lista de itens cadastrados, com código, nome, categoria, quantidade, preço e total</caption>
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Quantidade</th>
+              <th scope="col">Preço unit.</th>
+              <th scope="col">Total</th>
+              <th scope="col"><span class="visually-hidden">Ações</span></th>
+            </tr>
+          </thead>
+          <tbody id="corpo-tabela"></tbody>
+        </table>
+      </div>
+
+      <p id="estado-vazio" class="estado-vazio">Nenhum item cadastrado ainda. <a href="cadastro.html">Cadastre o primeiro item</a>.</p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>NúcleoGestão &middot; Atividade acadêmica de front-end &middot; <time datetime="2026">2026</time></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

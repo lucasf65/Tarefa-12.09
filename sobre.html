@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NúcleoGestão · Sobre</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="cabecalho__marca">
+      <img src="icone.svg" alt="Logotipo NúcleoGestão" width="40" height="40">
+      <div>
+        <p class="cabecalho__titulo">NúcleoGestão</p>
+        <p class="cabecalho__subtitulo">Cadastro e controle de itens</p>
+      </div>
+    </div>
+
+    <nav class="navegacao" aria-label="Navegação principal">
+      <ul class="navegacao__lista">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cadastro.html">Cadastrar</a></li>
+        <li><a href="visualizacao.html">Visualizar</a></li>
+        <li><a href="sobre.html" class="ativo">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <section class="secao">
+      <img src="icone.svg" alt="Logotipo NúcleoGestão" width="96" height="96" class="imagem-flutuante">
+      <h1>Sobre o NúcleoGestão</h1>
+      <p>
+        O NúcleoGestão é uma interface de estudo construída inteiramente com <strong>HTML5</strong> e
+        <strong>CSS3</strong> do lado do cliente, sem frameworks. Ela existe para praticar, em um
+        projeto pequeno e real, os fundamentos de estrutura semântica, cascata, seletores, modelo de
+        caixa (box model) e design responsivo.
+      </p>
+      <p>
+        Todo o conteúdo textual, tabular e de formulário desta atividade usa a tag mais adequada ao seu
+        significado — não à sua aparência. A aparência fica <em>inteiramente</em> a cargo do arquivo
+        <code>style.css</code>, ligado a todas as páginas por meio de <code>&lt;link rel="stylesheet"&gt;</code>.
+      </p>
+    </section>
+
+    <section class="secao">
+      <h2>Tecnologias e conceitos aplicados</h2>
+      <table class="tabela">
+        <caption class="visually-hidden">Conceitos de HTML5 e CSS3 aplicados no projeto</caption>
+        <thead>
+          <tr>
+            <th scope="col">Conceito</th>
+            <th scope="col">Onde aparece</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tags semânticas (header, nav, main, section, article, footer)</td><td>Todas as páginas</td></tr>
+          <tr><td>Listas ordenadas e não ordenadas</td><td>Página Início</td></tr>
+          <tr><td>Tabelas com thead/tbody/caption</td><td>Página Visualizar e esta página</td></tr>
+          <tr><td>Formulário com fieldset, legend, validação nativa</td><td>Página Cadastrar</td></tr>
+          <tr><td>Seletores de classe, id, descendente e pseudo-classe</td><td><code>style.css</code></td></tr>
+          <tr><td>Modelo de caixa (box model) e float</td><td>Imagem desta página</td></tr>
+          <tr><td>Media queries (design responsivo)</td><td><code>style.css</code></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="secao">
+      <h2>Referência bibliográfica</h2>
+      <p>FREEMAN, Eric; ROBSON, Elisabeth. <em>Use a Cabeça! HTML e CSS</em>. Rio de Janeiro: Alta Books.</p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>NúcleoGestão &middot; Atividade acadêmica de front-end &middot; <time datetime="2026">2026</time></p>
+  </footer>
+
+</body>
+</html>

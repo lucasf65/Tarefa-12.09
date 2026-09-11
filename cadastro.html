@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NúcleoGestão · Cadastrar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="cabecalho__marca">
+      <img src="icone.svg" alt="Logotipo NúcleoGestão" width="40" height="40">
+      <div>
+        <p class="cabecalho__titulo">NúcleoGestão</p>
+        <p class="cabecalho__subtitulo">Cadastro e controle de itens</p>
+      </div>
+    </div>
+
+    <nav class="navegacao" aria-label="Navegação principal">
+      <ul class="navegacao__lista">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cadastro.html" class="ativo">Cadastrar</a></li>
+        <li><a href="visualizacao.html">Visualizar</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <section class="secao">
+      <h1>Cadastrar novo item</h1>
+      <p class="secao__descricao">Preencha os campos abaixo. Os campos com <span aria-hidden="true">*</span> são obrigatórios.</p>
+
+      <form id="formulario-cadastro" class="formulario" novalidate>
+
+        <fieldset class="formulario__grupo">
+          <legend>Identificação do item</legend>
+
+          <div class="campo">
+            <label for="codigo">Código <span aria-hidden="true">*</span></label>
+            <input type="text" id="codigo" name="codigo" required pattern="[A-Za-z0-9\-]{3,12}" placeholder="Ex.: ITM-0001">
+            <small class="campo__ajuda">3 a 12 caracteres, letras, números e hífen.</small>
+          </div>
+
+          <div class="campo">
+            <label for="nome">Nome do item <span aria-hidden="true">*</span></label>
+            <input type="text" id="nome" name="nome" required minlength="2" maxlength="60" placeholder="Ex.: Cadeira de escritório">
+          </div>
+
+          <div class="campo">
+            <label for="categoria">Categoria <span aria-hidden="true">*</span></label>
+            <select id="categoria" name="categoria" required>
+              <option value="" disabled selected>Selecione uma categoria</option>
+              <option value="mobiliario">Mobiliário</option>
+              <option value="eletronico">Eletrônico</option>
+              <option value="material-escritorio">Material de escritório</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="formulario__grupo">
+          <legend>Quantidade e valor</legend>
+
+          <div class="campo">
+            <label for="quantidade">Quantidade <span aria-hidden="true">*</span></label>
+            <input type="number" id="quantidade" name="quantidade" required min="0" step="1" value="1">
+          </div>
+
+          <div class="campo">
+            <label for="preco">Preço unitário (R$) <span aria-hidden="true">*</span></label>
+            <input type="number" id="preco" name="preco" required min="0" step="0.01" placeholder="0,00">
+          </div>
+
+          <div class="campo campo--completo">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" name="observacoes" rows="3" maxlength="200" placeholder="Informações adicionais (opcional)"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="formulario__acoes">
+          <button type="submit" class="botao botao--primario">Cadastrar item</button>
+          <button type="reset" class="botao botao--secundario">Limpar campos</button>
+        </div>
+
+        <p id="mensagem-formulario" class="mensagem" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>NúcleoGestão &middot; Atividade acadêmica de front-end &middot; <time datetime="2026">2026</time></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

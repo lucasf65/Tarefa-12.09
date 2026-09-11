@@ -1,0 +1,265 @@
+/* =========================================================
+   NúcleoGestão — style.css
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --cor-fundo: #F6F7F9;
+  --cor-superficie: #FFFFFF;
+  --cor-texto: #1B2430;
+  --cor-texto-suave: #5B6472;
+  --cor-borda: #DDE2E8;
+  --cor-acento: #2F6F5E;
+  --cor-acento-escuro: #234F42;
+  --cor-acento-suave: #E4F1EC;
+  --cor-alerta: #B3542B;
+  --cor-foco: #1857B8;
+
+  --fonte-titulo: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --fonte-corpo: 'Inter', system-ui, sans-serif;
+
+  --espaco-1: 0.5rem;
+  --espaco-2: 1rem;
+  --espaco-3: 1.5rem;
+  --espaco-4: 2.5rem;
+
+  --largura-conteudo: 68rem;
+  --raio: 10px;
+  --sombra: 0 1px 2px rgba(27, 36, 48, 0.06), 0 6px 20px rgba(27, 36, 48, 0.05);
+}
+
+/* Seletor universal — reset de box model: todo elemento inclui
+   padding e border dentro da largura definida (border-box) */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+/* Seletor de tipo (element selector) */
+body {
+  margin: 0;
+  font-family: var(--fonte-corpo);
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  line-height: 1.5;
+}
+
+h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.2; margin: 0 0 var(--espaco-1); }
+p { margin: 0 0 var(--espaco-2); }
+code {
+  font-family: 'Courier New', monospace;
+  background: var(--cor-acento-suave);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Classe utilitária de acessibilidade */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Pseudo-classe :focus-visible — foco de teclado sempre visível */
+:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- Cabeçalho / Navegação ---------- */
+.cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-2);
+  padding: var(--espaco-2) var(--espaco-3);
+  background: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Seletor descendente: só imagens dentro de .cabecalho__marca */
+.cabecalho__marca { display: flex; align-items: center; gap: var(--espaco-1); }
+.cabecalho__marca img { border-radius: 8px; }
+
+.cabecalho__titulo { font-family: var(--fonte-titulo); font-weight: 700; font-size: 1.1rem; margin: 0; }
+.cabecalho__subtitulo { margin: 0; font-size: 0.8rem; color: var(--cor-texto-suave); }
+
+.navegacao__lista { display: flex; gap: var(--espaco-3); list-style: none; margin: 0; padding: 0; }
+
+/* Seletor descendente + pseudo-classes de link/estado */
+.navegacao__lista a {
+  color: var(--cor-texto-suave);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.35rem 0.1rem;
+  border-bottom: 2px solid transparent;
+}
+.navegacao__lista a:hover,
+.navegacao__lista a:focus-visible {
+  color: var(--cor-acento-escuro);
+  border-bottom-color: var(--cor-acento);
+}
+/* Classe aplicada via HTML para marcar a página atual */
+.navegacao__lista a.ativo {
+  color: var(--cor-acento-escuro);
+  border-bottom-color: var(--cor-acento-escuro);
+}
+
+/* ---------- Layout principal ---------- */
+.conteudo {
+  max-width: var(--largura-conteudo);
+  margin: 0 auto;
+  padding: var(--espaco-4) var(--espaco-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+.secao__descricao { color: var(--cor-texto-suave); max-width: 46rem; }
+
+.secao__cabecalho-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--espaco-2);
+  margin-bottom: var(--espaco-2);
+}
+
+/* ---------- Hero (página inicial) ---------- */
+.secao--hero {
+  background: var(--cor-acento-suave);
+  border-radius: var(--raio);
+  padding: var(--espaco-4) var(--espaco-3);
+}
+.secao--hero h1 { color: var(--cor-acento-escuro); }
+
+/* ---------- Listas (ordenada e não ordenada) ---------- */
+.lista-recursos, .lista-passos {
+  padding-left: 1.4rem;
+  color: var(--cor-texto);
+}
+.lista-recursos li, .lista-passos li { margin-bottom: 0.5rem; }
+/* Pseudo-classe estrutural: destaca o último item da lista */
+.lista-recursos li:last-child { margin-bottom: 0; }
+
+/* ---------- Imagem flutuante (demonstração de float + box model) ---------- */
+.imagem-flutuante {
+  float: left;
+  margin: 0 var(--espaco-2) var(--espaco-1) 0;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 0.5rem;
+  background: var(--cor-superficie);
+}
+
+/* ---------- Cartões de resumo ---------- */
+.cartoes-resumo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--espaco-2);
+  margin-top: var(--espaco-2);
+}
+.cartao-resumo {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-left: 4px solid var(--cor-acento);
+  border-radius: var(--raio);
+  padding: var(--espaco-2) var(--espaco-3);
+  box-shadow: var(--sombra);
+}
+.cartao-resumo__rotulo { margin: 0 0 0.25rem; font-size: 0.8rem; color: var(--cor-texto-suave); text-transform: uppercase; letter-spacing: 0.04em; }
+.cartao-resumo__valor { margin: 0; font-family: var(--fonte-titulo); font-variant-numeric: tabular-nums; font-size: 1.75rem; font-weight: 700; color: var(--cor-acento-escuro); }
+
+/* ---------- Formulário ---------- */
+.formulario { background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: var(--raio); padding: var(--espaco-3); box-shadow: var(--sombra); }
+.formulario__grupo { border: 0; padding: 0; margin: 0 0 var(--espaco-3); display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--espaco-2) var(--espaco-3); }
+.formulario__grupo legend { font-family: var(--fonte-titulo); font-weight: 600; padding: 0 0 var(--espaco-1); grid-column: 1 / -1; }
+
+.campo { display: flex; flex-direction: column; gap: 0.35rem; }
+.campo--completo { grid-column: 1 / -1; }
+.campo label { font-weight: 600; font-size: 0.9rem; }
+
+/* Seletor de atributo: todo input de texto/número/data etc dentro de .campo */
+.campo input, .campo select, .campo textarea {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus { background: var(--cor-superficie); border-color: var(--cor-acento); }
+/* Pseudo-classe de validação nativa do HTML5 */
+.campo input:invalid:not(:placeholder-shown) { border-color: var(--cor-alerta); }
+.campo__ajuda { font-size: 0.78rem; color: var(--cor-texto-suave); }
+
+.formulario__acoes { display: flex; gap: var(--espaco-2); flex-wrap: wrap; }
+
+.botao { font: inherit; font-weight: 600; padding: 0.65rem 1.3rem; border-radius: 6px; border: 1px solid transparent; cursor: pointer; text-decoration: none; display: inline-block; }
+.botao--primario { background: var(--cor-acento); color: #fff; }
+.botao--primario:hover { background: var(--cor-acento-escuro); }
+.botao--secundario { background: transparent; border-color: var(--cor-borda); color: var(--cor-texto-suave); }
+.botao--secundario:hover { border-color: var(--cor-texto-suave); color: var(--cor-texto); }
+.botao--perigo { background: transparent; border: 1px solid var(--cor-alerta); color: var(--cor-alerta); padding: 0.35rem 0.7rem; font-size: 0.85rem; border-radius: 6px; cursor: pointer; }
+.botao--perigo:hover { background: var(--cor-alerta); color: #fff; }
+
+.mensagem { margin: var(--espaco-2) 0 0; font-weight: 600; min-height: 1.2em; }
+.mensagem--sucesso { color: var(--cor-acento-escuro); }
+.mensagem--erro { color: var(--cor-alerta); }
+
+.campo--busca { min-width: 16rem; }
+
+/* ---------- Tabela ---------- */
+.tabela-wrapper { overflow-x: auto; border: 1px solid var(--cor-borda); border-radius: var(--raio); background: var(--cor-superficie); box-shadow: var(--sombra); }
+.tabela { width: 100%; border-collapse: collapse; min-width: 42rem; font-variant-numeric: tabular-nums; }
+.tabela th, .tabela td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--cor-borda); font-size: 0.92rem; }
+.tabela thead th { background: var(--cor-acento-suave); color: var(--cor-acento-escuro); font-family: var(--fonte-titulo); position: sticky; top: 0; }
+/* Pseudo-classe estrutural :nth-child — zebra striping nas linhas de dados */
+.tabela tbody tr:nth-child(even) { background: var(--cor-fundo); }
+.tabela tbody tr:hover { background: var(--cor-acento-suave); }
+.tabela tbody tr:last-child td { border-bottom: 0; }
+
+.estado-vazio { text-align: center; color: var(--cor-texto-suave); padding: var(--espaco-3); display: none; }
+.estado-vazio.ativo { display: block; }
+
+/* ---------- Rodapé ---------- */
+.rodape { text-align: center; padding: var(--espaco-3); color: var(--cor-texto-suave); font-size: 0.85rem; border-top: 1px solid var(--cor-borda); clear: both; }
+
+/* =========================================================
+   Responsividade — mobile-first
+   ========================================================= */
+@media (max-width: 30rem) {
+  .cabecalho { padding: var(--espaco-1) var(--espaco-2); }
+  .navegacao__lista { gap: var(--espaco-2); font-size: 0.85rem; }
+  .conteudo { padding: var(--espaco-3) var(--espaco-2); }
+  .cartao-resumo__valor { font-size: 1.4rem; }
+  .imagem-flutuante { float: none; display: block; margin: 0 0 var(--espaco-2); }
+}
+
+@media (min-width: 48rem) {
+  .conteudo { padding-inline: var(--espaco-4); }
+}
+
+@media (min-width: 75rem) {
+  :root { --largura-conteudo: 74rem; }
+}
+
+@media print {
+  .cabecalho, .navegacao, .formulario, .rodape, .campo--busca { display: none; }
+  .tabela-wrapper { box-shadow: none; border: 1px solid #000; }
+}

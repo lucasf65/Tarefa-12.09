@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NúcleoGestão · Início</title>
+  <meta name="description" content="Sistema de gestão para cadastro e visualização de itens de inventário.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="cabecalho__marca">
+      <img src="icone.svg" alt="Logotipo NúcleoGestão" width="40" height="40">
+      <div>
+        <p class="cabecalho__titulo">NúcleoGestão</p>
+        <p class="cabecalho__subtitulo">Cadastro e controle de itens</p>
+      </div>
+    </div>
+
+    <nav class="navegacao" aria-label="Navegação principal">
+      <ul class="navegacao__lista">
+        <li><a href="index.html" class="ativo">Início</a></li>
+        <li><a href="cadastro.html">Cadastrar</a></li>
+        <li><a href="visualizacao.html">Visualizar</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <section class="secao secao--hero">
+      <h1>Bem-vindo ao NúcleoGestão</h1>
+      <p class="secao__descricao">
+        Um sistema simples para <strong>cadastrar</strong> e <strong>visualizar</strong> itens de
+        inventário, construído inteiramente com <em>HTML5</em> e <em>CSS3</em> do lado do cliente.
+      </p>
+      <a href="cadastro.html" class="botao botao--primario">Começar um cadastro</a>
+    </section>
+
+    <section class="secao">
+      <h2>O que você pode fazer aqui</h2>
+      <ul class="lista-recursos">
+        <li>Cadastrar itens com código, nome, categoria, quantidade e preço.</li>
+        <li>Visualizar todos os itens em uma tabela organizada.</li>
+        <li>Buscar itens por nome ou código.</li>
+        <li>Excluir itens que não fazem mais sentido no inventário.</li>
+      </ul>
+    </section>
+
+    <section class="secao">
+      <h2>Passo a passo</h2>
+      <ol class="lista-passos">
+        <li>Acesse <a href="cadastro.html">Cadastrar</a> e preencha o formulário.</li>
+        <li>Confirme o cadastro clicando em "Cadastrar item".</li>
+        <li>Vá em <a href="visualizacao.html">Visualizar</a> para conferir a tabela atualizada.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>NúcleoGestão &middot; Atividade acadêmica de front-end &middot; <time datetime="2026">2026</time></p>
+  </footer>
+
+</body>
+</html>
